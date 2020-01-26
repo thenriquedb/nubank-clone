@@ -1,7 +1,8 @@
 
+import { Animated } from "react-native";
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const CardContainer = styled(Animated.View)`
   flex: 1;
   background-color: #fff;
   border-radius: 4px;

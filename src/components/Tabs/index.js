@@ -1,13 +1,25 @@
 import React from 'react';
 
-import { View } from 'react-native';
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { Container, TabsContainer, TabItem, TabText } from './styles';
 
-const Tabs = () => {
+const Tabs = ({ translateY }) => {
   return (
-    <Container>
+    <Container
+      style={{
+        transform: [{
+          translateY: translateY.interpolate({
+            inputRange: [0, 250],
+            outputRange: [0, 40],
+          })
+        }],
+        opacity: translateY.interpolate({
+          inputRange: [0, 250],
+          outputRange: [1, 0],
+          extrapolate: 'clamp'
+        })
+      }}>
       <TabsContainer>
         <TabItem>
           <MaterialIcons name="person-add" size={24} color="#fff" />

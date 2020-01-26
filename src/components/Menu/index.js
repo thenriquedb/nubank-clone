@@ -20,9 +20,15 @@ import {
   ExitButtonText
 } from './styles';
 
-const Menu = () => {
+const Menu = ({ translateY }) => {
   return (
-    <Container>
+    <Container
+      style={{
+        opacity: translateY.interpolate({
+          inputRange: [0, 400],
+          outputRange: [0, 1]
+        })
+      }}>
       <QRCodeArea>
         <QRCode source={qrcode} />
       </QRCodeArea>

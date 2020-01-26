@@ -1,13 +1,25 @@
 import React from 'react';
-
-import { View } from 'react-native';
 import { MaterialIcons } from "@expo/vector-icons";
 
-import { Container, CardContent, Quantity, HeaderDescription, CardHeader, Description, CardFooter, Title, Annotation } from './styles';
+import {
+  CardContainer,
+  CardContent,
+  Quantity,
+  HeaderDescription,
+  CardHeader,
+  Description,
+  CardFooter,
+  Title,
+  Annotation
+} from './styles';
 
-const Card = () => {
+const Card = ({ translateY }) => {
   return (
-    <Container>
+    <CardContainer style={{
+      transform: [{
+        translateY: translateY,
+      }]
+    }}>
       <CardHeader>
         <MaterialIcons name="payment" size={28} color="#ccc" />
         <HeaderDescription> Cartão de crédito </HeaderDescription>
@@ -25,7 +37,7 @@ const Card = () => {
         </Annotation>
         <MaterialIcons name="navigate-next" size={30} color="#ccc" />
       </CardFooter>
-    </Container>
+    </CardContainer>
   );
 };
 
